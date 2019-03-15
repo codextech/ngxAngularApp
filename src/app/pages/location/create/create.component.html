@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header>Location</nb-card-header>
+            <nb-card-body>
+                <form #locForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label for="tree">Parent Location</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <tree-root [nodes]="locations" [options]="opts" (activate)="onActivate($event)"></tree-root>
+                        </div>
+                    </div>
+                    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="nameEng">Name (English)</label>
+                                <input type="hidden" name="id" [(ngModel)]="loc.id" />
+                                <input name="nameEng" [(ngModel)]="loc.nameEng" required id="nameEng" type="text"
+                                    class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="abbrEng">Abbreviation (English)</label>
+                                <input name="abbrEng" [(ngModel)]="loc.abbrEng" id="abbrEng" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="nameBang">Name (Bangla)</label>
+                                <input name="nameBang" [(ngModel)]="loc.nameBang" requied id="nameBang" type="text"
+                                    class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="abbrBang">Abbreviation (Bangla)</label>
+                                <input name="abbrBang" [(ngModel)]="loc.abbrBang" id="abbrBang" type="text"
+                                    class="form-control" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="keyWord">Keyword</label>
+                                <input name="keyWord" [(ngModel)]="loc.keyWord" id="keyWord" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serialNo">Serial No.</label>
+                                <input name="serialNo" [(ngModel)]="loc.serialNo" id="serialNo" type="text"
+                                    class="form-control" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="remarks">Remarks</label>
+                                <input name="remarks" [(ngModel)]="loc.remarks" id="remarks" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <nb-checkbox [value]="true" name="active" [(ngModel)]="loc.active">Active</nb-checkbox>
+
+                            </div>
+                        </div>
+                    </div>
+                    <button [disabled]="!locForm.form.valid"  type="submit" class="btn btn-danger">Save</button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+
+    </div>
+</div>

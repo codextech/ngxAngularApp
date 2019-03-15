@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header>Menu</nb-card-header>
+            <nb-card-body>
+                <form #menForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="title">Menu Title</label>
+                                <input type="hidden" name="id" [(ngModel)]="menu.id" />
+                                <input name="title" [(ngModel)]="menu.title" required id="title" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="urlPath">URL Path</label>
+                                <input name="urlPath" [(ngModel)]="menu.urlPath" id="urlPath" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="toolTip">Tool Tip</label>
+                                <input name="toolTip" [(ngModel)]="menu.toolTip" requied id="toolTip" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="menuClass">Menu Class</label>
+                                <input name="menuClass" [(ngModel)]="menu.menuClass" id="menuClass" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="desc">Menu Description</label>
+                                <input name="desc" [(ngModel)]="menu.desc" id="desc" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="type">Menu Type</label>
+                                <input name="type" [(ngModel)]="menu.type" id="type" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="parentMenuId">Parent Menu</label>
+                                <input name="parentMenuId" [(ngModel)]="menu.parentMenuId" id="remarks" type="text"
+                                    class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="sortOrder">Sort Order</label>
+                                <input name="sortOrder" [(ngModel)]="menu.sortOrder" id="remarks" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <nb-checkbox [value]="true" name="external" [(ngModel)]="menu.external">External</nb-checkbox>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <nb-checkbox [value]="true" name="active" [(ngModel)]="menu.active">Active</nb-checkbox>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <nb-checkbox [value]="true" name="openInNewTab" [(ngModel)]="menu.openInNewTab">Open In
+                                    New Tab</nb-checkbox>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="moduleId">Module</label>
+                                <input name="moduleId" [(ngModel)]="menu.moduleId" id="remarks" type="text" class="form-control"
+                                    placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <button [disabled]="!menForm.form.valid" type="submit" class="btn btn-danger">Save</button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+
+    </div>
+</div>

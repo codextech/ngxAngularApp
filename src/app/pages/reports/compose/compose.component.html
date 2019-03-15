@@ -1,0 +1,211 @@
+<div _ngcontent-c57="" class="col-md-12">
+  <nb-card _ngcontent-c57="" _nghost-c27="">
+    <nb-card-header _ngcontent-c57="">Basic form</nb-card-header>
+    <nb-card-body _ngcontent-c57="">
+      <form #f="ngForm" (ngSubmit)="onSubmit()" class="ng-untouched ng-pristine ng-valid">
+          
+        <div class="form-row">
+
+
+       
+
+        <div _ngcontent-c57="" class="col-md-6 form-group">
+            <label _ngcontent-c57="" for="">Report Id</label>
+            <input [(ngModel)]="form.reportId" name="reportId"  class="form-control" id="reportId" placeholder="report Id" type="text">
+          </div>
+
+          <div class="col-md-6 form-group">
+              <label for="">Last Date</label>
+              <input [(ngModel)]="form.lastDate" name="lastDate" id="lastdate"  class="form-control"  type="date" placeholder="Last Date of Submission">
+          </div>
+
+        <div class="col-md-6 form-group">
+            <label for="">Report Type</label>
+            <select [(ngModel)]="form.reportType" name="reportType"  class="form-control">
+                <option selected>Choose</option>
+                <option>...</option>
+            </select>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label for="">Memo No.</label>
+            <input [(ngModel)]="form.memoNo" name="memoNo" class="form-control" placeholder="Memo No.">
+        </div>
+
+
+        <div class="col-md-6 form-group">
+            <label for="">Subject</label>
+            <input  [(ngModel)]="form.subject" name="subject" class="form-control"  placeholder="Subject">
+        </div>
+
+
+        <div class="col-md-6 form-group">
+            <label for="">Memo Date</label>
+            <input  [(ngModel)]="form.memoDate" name="memoDate"  class="form-control"  type="date" placeholder="Memo Date">
+        </div>
+
+        <div class="col-md-12 form-group">
+            <label for="">Remarks</label>
+            <input [(ngModel)]="form.remarks" name="remarks"  class="form-control" placeholder="Remarks">
+        </div>
+
+
+
+
+
+
+        <!-- Sender Section -->
+        <h3 class="form-section-head">Sender</h3>
+
+       <div _ngcontent-c57="" class="col-md-6 form-group">
+            <label _ngcontent-c57="" for="">Sender</label>
+            <select #send   class="form-control">
+                <option selected>Choose</option>
+             
+                <option>hey its data.</option>
+            </select>
+
+        <button class="mt-2 btn btn-primary" (click)="AddSender(send.value)">Add</button>
+
+        </div> 
+
+
+       
+
+
+
+
+          <!-- Recipients Section -->
+          <h3 class="form-section-head">Recipients</h3>
+
+           <div class="col-md-12">
+
+
+          <div _ngcontent-c57="" class="col-md-6 form-group">
+              <label _ngcontent-c57="" for="">Recipients</label>
+              <select #rec   class="form-control">
+                  <option selected>Choose</option>
+                  <option>...</option>
+              </select>
+            
+              <button class="mt-2 btn btn-primary" (click)="AddRecep(rec.value)">Add</button>
+
+          </div>
+
+          
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Recipients</th>
+                  <th scope="col">Remove</th>
+                </tr>
+              </thead>
+
+             
+
+              <tbody>
+
+                  <tr *ngFor="let r of form.recipients; let i =index">
+                      <td scope="col">{{r}}</td>
+                      <td scope="col" (click)="removeRec(i)">Remove</td>
+                  </tr>
+
+              </tbody>
+
+              </table>
+
+        </div> 
+
+
+
+           <!-- Acknowledgments Section -->
+           <h3 class="form-section-head">Acknowledgments</h3>
+
+            <div class="col-md-12">
+ 
+ 
+           <div _ngcontent-c57="" class="col-md-6 form-group">
+               <label  _ngcontent-c57="" for="">Acknowledgments</label>
+               <select #ack  name="acknowledge"class="form-control">
+                   <option selected>Choose</option>
+                   <option>...</option>
+               </select>
+            <button class="mt-2 btn btn-primary" (click)="AddAcknowldge(ack.value)">Add</button>
+
+           </div>
+ 
+           
+           <table class="table table-striped">
+               <thead>
+                 <tr>
+                   <th scope="col">Acknowledgments</th>
+                   <th scope="col">Remove</th>
+                 </tr>
+               </thead>
+ 
+              
+ 
+               <tbody>
+ 
+                  <tr *ngFor="let a of form.acknowledge; let i =index">
+                      <td scope="col">{{a}}</td>
+                      <td scope="col" (click)="removeAcknowldge(i)">Remove</td>
+                  </tr>
+ 
+               </tbody>
+ 
+               </table>
+ 
+         </div> 
+
+
+ 
+
+          <!-- Attatchment Section -->
+          <h3 class="form-section-head">Attatchment</h3>
+
+          <div class="col-md-12">
+
+
+          <div _ngcontent-c57="" class="col-md-6 form-group">
+              <label _ngcontent-c57="" for="">Attatchment</label>
+              <br>
+            <input type="file">
+          </div>
+
+          
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Attatchment</th>
+                  <th scope="col">Remove</th>
+                </tr>
+              </thead>
+
+             
+
+              <tbody>
+
+                  <tr>
+                      <td scope="col">test</td>
+                      <td scope="col">Remove</td>
+                  </tr>
+
+              </tbody>
+
+              </table>
+
+        </div>
+
+
+
+      <div _ngcontent-c57="" class="form-group"> </div>
+
+
+        <button _ngcontent-c57="" class="btn btn-danger btn-block" type="submit">Submit</button>
+      </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+
+</div>

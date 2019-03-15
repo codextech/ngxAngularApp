@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header>Organization</nb-card-header>
+            <nb-card-body>
+                <form #orgForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label for="tree">Parent Organization</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <tree-root [nodes]="orgs" [options]="opts" (activate)="onActivate($event)"></tree-root>
+                        </div>
+                        <div class="col-sm-2">
+                            <label for="tree">Location</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <tree-root [nodes]="locations" [options]="opts" (activate)="onLocActivate($event)"></tree-root>
+                        </div>
+                    </div>
+                    <div class="row">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="nameEng">Name (English)</label>
+                                <input type="hidden" name="id" [(ngModel)]="org.id" />
+                                <input name="nameEng" [(ngModel)]="org.nameEng" required id="nameEng" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="webAddress">Org. Web Address</label>
+                                <input name="webAddresg" [(ngModel)]="org.webAddress" id="webAddress" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="nameBang">Name (Bangla)</label>
+                                <input name="nameBang" [(ngModel)]="org.nameBang" requied id="nameBang" type="text"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="telephone">Telephone</label>
+                                <input name="telephone" [(ngModel)]="org.telephone" required id="telephone" type="text"
+                                    class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="address">Org. Address</label>
+                                <input name="address" [(ngModel)]="org.address" required id="address" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input name="email" [(ngModel)]="org.email" id="email" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="remarks">Remarks</label>
+                                <input name="remarks" [(ngModel)]="org.remarks" id="remarks" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <nb-checkbox [value]="true" name="active" [(ngModel)]="org.active">Active</nb-checkbox>
+
+                            </div>
+                        </div>
+                    </div>
+                    <button [disabled]="!orgForm.form.valid" type="submit" class="btn btn-danger">Save</button>
+                </form>
+            </nb-card-body>
+        </nb-card>
+
+    </div>
+</div>
