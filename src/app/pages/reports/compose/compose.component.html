@@ -1,6 +1,6 @@
 <div _ngcontent-c57="" class="col-md-12">
   <nb-card _ngcontent-c57="" _nghost-c27="">
-    <nb-card-header _ngcontent-c57="">Basic form</nb-card-header>
+    <nb-card-header _ngcontent-c57="">Compose Report</nb-card-header>
     <nb-card-body _ngcontent-c57="">
       <form #f="ngForm" (ngSubmit)="onSubmit()" class="ng-untouched ng-pristine ng-valid">
           
@@ -65,34 +65,48 @@
                 <option>hey its data.</option>
             </select>
 
-        <button class="mt-2 btn btn-primary" (click)="AddSender(send.value)">Add</button>
+        <button style="float:right" class="mt-2 btn btn-success" (click)="AddSender(send.value)"><i class="fa fa-plus"></i></button>
 
         </div> 
-
-
-       
-
-
-
-
           <!-- Recipients Section -->
           <h3 class="form-section-head">Recipients</h3>
 
-           <div class="col-md-12">
-
-
-          <div _ngcontent-c57="" class="col-md-6 form-group">
+           <div class="col-md-6 form-group">
+             
               <label _ngcontent-c57="" for="">Recipients</label>
               <select #rec   class="form-control">
                   <option selected>Choose</option>
                   <option>...</option>
+
               </select>
-            
-              <button class="mt-2 btn btn-primary" (click)="AddRecep(rec.value)">Add</button>
+                  <button style="float:right" class="mt-2 btn btn-success" (click)="AddRecep(rec.value)"><i class="fa fa-plus"></i></button>
+
 
           </div>
 
-          
+       
+          <div class="col-md-12">
+
+            <table class="table-fill">
+            <thead>
+            <tr>
+            <th class="text-left">Recipients</th>
+            <th class="text-left">Remove</th>
+            </tr>
+            </thead>
+            <tbody class="table-hover">
+
+                <tr *ngFor="let r of form.recipients; let i =index">
+                    <td  class="text-left">{{r}}</td>
+                    <td  class="text-left" (click)="removeRec(i)"><i class="fa fa-trash-alt"></i> </td>
+                </tr>
+           
+            </tbody>
+            </table>
+          </div>
+
+
+<!--           
           <table class="table table-striped">
               <thead>
                 <tr>
@@ -112,16 +126,14 @@
 
               </tbody>
 
-              </table>
+              </table> -->
 
-        </div> 
+      
 
 
 
            <!-- Acknowledgments Section -->
            <h3 class="form-section-head">Acknowledgments</h3>
-
-            <div class="col-md-12">
  
  
            <div _ngcontent-c57="" class="col-md-6 form-group">
@@ -130,31 +142,34 @@
                    <option selected>Choose</option>
                    <option>...</option>
                </select>
-            <button class="mt-2 btn btn-primary" (click)="AddAcknowldge(ack.value)">Add</button>
-
+               <button style="float:right" class="mt-2 btn btn-success" (click)="AddAcknowldge(ack.value)"><i class="fa fa-plus"></i></button>
            </div>
  
            
-           <table class="table table-striped">
-               <thead>
-                 <tr>
-                   <th scope="col">Acknowledgments</th>
-                   <th scope="col">Remove</th>
-                 </tr>
-               </thead>
+         
  
+               <div class="col-md-12">
+
+                  <table class="table-fill">
+                  <thead>
+                  <tr>
+                  <th class="text-left">Acknowledgments</th>
+                  <th class="text-left">Remove</th>
+                  </tr>
+                  </thead>
+                  <tbody class="table-hover">
+      
+                      <tr *ngFor="let a of form.acknowledge; let i =index">
+                          <td class="text-left">{{a}}</td>
+                          <td class="text-left" (click)="removeAcknowldge(i)"><i class="fa fa-trash-alt"></i></td>
+                      </tr>
+                 
+                  </tbody>
+                  </table>
+                </div>
               
  
-               <tbody>
- 
-                  <tr *ngFor="let a of form.acknowledge; let i =index">
-                      <td scope="col">{{a}}</td>
-                      <td scope="col" (click)="removeAcknowldge(i)">Remove</td>
-                  </tr>
- 
-               </tbody>
- 
-               </table>
+             
  
          </div> 
 
@@ -164,7 +179,7 @@
           <!-- Attatchment Section -->
           <h3 class="form-section-head">Attatchment</h3>
 
-          <div class="col-md-12">
+          
 
 
           <div _ngcontent-c57="" class="col-md-6 form-group">
@@ -172,30 +187,25 @@
               <br>
             <input type="file">
           </div>
+          <div class="col-md-12">
 
-          
-          <table class="table table-striped">
+              <table class="table-fill">
               <thead>
-                <tr>
-                  <th scope="col">Attatchment</th>
-                  <th scope="col">Remove</th>
-                </tr>
+              <tr>
+              <th class="text-left">Attatchments</th>
+              <th class="text-left">Remove</th>
+              </tr>
               </thead>
-
-             
-
-              <tbody>
-
+              <tbody class="table-hover">
+  
                   <tr>
-                      <td scope="col">test</td>
-                      <td scope="col">Remove</td>
+                      <td class="text-left">Test</td>
+                      <td class="text-left"><i class="fa fa-trash-alt"></i></td>
                   </tr>
-
+             
               </tbody>
-
               </table>
-
-        </div>
+            </div>
 
 
 
@@ -203,7 +213,6 @@
 
 
         <button _ngcontent-c57="" class="btn btn-danger btn-block" type="submit">Submit</button>
-      </div>
       </form>
     </nb-card-body>
   </nb-card>

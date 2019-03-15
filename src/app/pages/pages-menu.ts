@@ -127,7 +127,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     },
     {
         title: 'Report',
-        icon: 'nb-report',
+        icon: 'nb-bar-chart',
         children: [
             {
                 title: 'Compose',
